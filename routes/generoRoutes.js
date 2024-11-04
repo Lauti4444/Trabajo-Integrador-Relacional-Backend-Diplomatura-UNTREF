@@ -7,7 +7,27 @@ const Genero = require('../models/genero');
 const Contenido = require('../models/contenido');
 const contenidoGenero = require('../models/contenidoActor');
 
-//trae todos los generos
+/**
+ * @swagger
+ * /genero:
+ *   get:
+ *     summary: Obtener todos los generos
+ *     description: Endpoint para obtener una lista de todas los generos en la base de datos.
+ *     responses:
+ *       200:
+ *         description: Respuesta exitosa. Devuelve una lista de generos.
+ *         content:
+ *           application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/Genero'
+ *       500:
+ *         description: no se pudieron traer los generos
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: no se pudieron traer los generos
+ *               description: Mensaje de error detallado.
+ */
 router.get('/', async (req, res) => {
     try {
         const generos = await Genero.findAll()
@@ -17,7 +37,23 @@ router.get('/', async (req, res) => {
     }
 });
 
-//crea una categoria
+/**
+ * @swagger
+ * /genero:
+ *   post:
+ *     summary: Crear un nuevo genero
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Genero'
+ *     responses:
+ *       201:
+ *         description: Genero creado exitosamente
+ *       500:
+ *         description: no se pudo crear el genero
+ */
 router.post('/', async (req, res) => {
     try {
         const { nombre_genero } = req.body
@@ -28,7 +64,26 @@ router.post('/', async (req, res) => {
       }
 });
 
-//borra una categoria por id
+/**
+ * @swagger
+ * /genero/{id}:
+ *   delete:
+ *     summary: Eliminar un genero
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del genero
+ *     responses:
+ *       204:
+ *         description: genero borrado con exito
+ *       404:
+ *         description: genero no encontrado
+ *       500:
+ *         description: no se pudo eliminar el genero
+ */
 router.delete('/:id', async (req, res) => {
     const { id } = req.params
     try {
@@ -37,14 +92,29 @@ router.delete('/:id', async (req, res) => {
         return res.status(404).send({ error: 'genero no encontrado' })
       }
       await generoBorrado.destroy()
-      res.json({ message: 'genero borrado con exito' })
       res.status(204).send()
     } catch (error) {
       res.status(500).send({ error: 'no se pudo eliminar el genero' })
     }
 });
 
-//obtener todas los generos con sus contenidos
+/**
+ * @swagger
+ * /genero/contenidos/asociados:
+ *   get:
+ *     summary: Obtener todas los generos con los contenidos que lo referencian
+ *     responses:
+ *       200:
+ *         description: Lista de todas los generos con los contenidos
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Genero'
+ *       500:
+ *         description: no se pudo listar los generos
+ */
 router.get('/contenidos/asociados', async (req, res) => {
   try {
     const generos = await Genero.findAll(

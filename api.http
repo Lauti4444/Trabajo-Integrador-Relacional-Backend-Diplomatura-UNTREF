@@ -9,8 +9,7 @@ GET http://localhost:3000/contenido
 GET http://localhost:3000/contenido/3
 
 ### Filtrar contenidos (1 para pelis, 2 para series y texto para nombre o genero)
-GET http://localhost:3000/contenido/filtrar/1
-
+GET http://localhost:3000/contenido/filtrar/Riverdale
 ### Crear contenido
 POST http://localhost:3000/contenido
 Content-Type: application/json
@@ -63,7 +62,7 @@ GET http://localhost:3000/contenido/generos/asociados
 ### Traer todos los Actores
 GET http://localhost:3000/actor
 
-### Crear contenido
+### Crear actores
 POST http://localhost:3000/actor
 Content-Type: application/json
 

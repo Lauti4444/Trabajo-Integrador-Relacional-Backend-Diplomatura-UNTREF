@@ -5,10 +5,15 @@ const actorRoutes = require('./routes/actorRoutes')
 const categoriaRoutes = require('./routes/categoriaRoutes')
 const generoRoutes = require('./routes/generoRoutes')
 const sequelize = require('./conexion/database');
+const { swaggerUi, swaggerDocs } = require('./swaggerConfig');
 
 
-// Middlewares
 app.use(express.json());
+
+//Swagger Config
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+
+//routes
 app.use('/contenido', contenidoRoutes);
 app.use('/actor', actorRoutes)
 app.use('/categoria', categoriaRoutes)
@@ -19,5 +24,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
   await sequelize.authenticate()
   console.log(`Server running on port ${PORT}`);
+  console.log(`Docuentación de la API en http://localhost:${PORT}/api-docs`)
 });
     

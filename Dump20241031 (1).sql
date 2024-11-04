@@ -174,14 +174,6 @@ LOCK TABLES `generos` WRITE;
 INSERT INTO `generos` VALUES (1,'Drama'),(2,'Suceso Real'),(3,'Mistero'),(4,'Ficcion'),(5,'Accion'),(6,'Aventura'),(7,'Ciencia Ficcion'),(8,'Fantasia'),(9,'Comedia');
 /*!40000 ALTER TABLE `generos` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'cinema'
---
-
---
--- Dumping routines for database 'cinema'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -192,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-31  1:01:44
+-- Dump completed on 2024-10-31 20:53:16

@@ -24,6 +24,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
   await sequelize.authenticate()
   console.log(`Server running on port ${PORT}`);
-  console.log(`Docuentación de la API en http://localhost:${PORT}/api-docs`)
+  console.log(`Documentación de la API en http://localhost:${PORT}/api-docs`)
 });
     

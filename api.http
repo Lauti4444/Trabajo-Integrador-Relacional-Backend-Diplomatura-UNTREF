@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ### Borrar contenido por id
-DELETE http://localhost:3000/contenido/8
+DELETE http://localhost:3000/contenido/11
 
 ### Asociar contenido y Actor
 POST http://localhost:3000/contenido/1/actor/24
@@ -107,11 +107,11 @@ POST http://localhost:3000/genero
 Content-Type: application/json
 
 {
-    "nombre_genero": "Comedia"
+    "nombre_genero": "pruebita"
 }
 
 ### Borrar categoria por id
-DELETE http://localhost:3000/genero/10
+DELETE http://localhost:3000/genero/12
 
 ### Mostrar los generos con sus contenidos relacionados
 GET http://localhost:3000/genero/contenidos/asociados

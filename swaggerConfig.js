@@ -12,7 +12,7 @@ const swaggerOptions = {
     servers: [
       {
         url: 'http://localhost:3000',
-        url: 'https://trabajo-integrador-sql-production.up.railway.app'
+        url: 'https://renewed-radiance-production.up.railway.app.up.railway.app'
       },
     ],
     components: {
